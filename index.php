@@ -1,0 +1,1 @@
+<?php header("location: Views/timer_pomodoro.php") ?>
