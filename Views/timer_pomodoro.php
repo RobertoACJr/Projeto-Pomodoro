@@ -24,34 +24,41 @@
         <div class="row">
             <div class="col-md-4 offset-md-4 row">
                 <div class="col-md-6">   
-                    <button id="start" type="submmit" class="btn btn-outline-primary form-control">
+                    <button id="btnIniciar" type="submmit" class="btn btn-outline-primary form-control">
                         Iniciar
                     </button>
                 </div>
+
                 <div class="col-md-6">
                     <button class="btn btn-outline-danger form-control" onclick="resetar()">
-                        resetar
+                        Pausa
                     </button>
                 </div>
             </div>
         </div>
     </div>
 
+    <audio src="../Audio/Alerta.mp3" id="idAudio"></audio>
 </body>
 
 <script>  
     $(document).ready(function(){
-        $('#start').click(function(){
+        $('#btnIniciar').click(function(){
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.open("GET","../Timer/inicia_temp.php",false);
             xmlhttp.send(null);
         });
     });
 
-    setInterval(function() {
+    regressao = setInterval(function() {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.open("GET","../Timer/calcula_temp.php",false);
         xmlhttp.send(null);
         document.getElementById("temp").innerHTML=xmlhttp.responseText;
+        var aux = ""+xmlhttp.responseText;
+        if(aux == '00:00'){
+            document.getElementById('idAudio').play();
+            clearInterval(regressao);
+        }
     }, 1000);
 </script>
