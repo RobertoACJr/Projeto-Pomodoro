@@ -23,15 +23,15 @@
         
         <div class="row">
             <div class="col-md-4 offset-md-4 row">
-                <div class="col-md-6">   
-                    <button id="btnIniciar" type="submmit" class="btn btn-outline-primary form-control">
+                <div class="col-md-6">  
+                    <button id="btnIniciar" class="btn btn-outline-primary form-control">
                         Iniciar
                     </button>
                 </div>
 
                 <div class="col-md-6">
-                    <button class="btn btn-outline-danger form-control" onclick="resetar()">
-                        Pausa
+                    <button id="btnIntevalo" class="btn btn-outline-danger form-control">
+                        Intervalo
                     </button>
                 </div>
             </div>
@@ -44,9 +44,23 @@
 <script>  
     $(document).ready(function(){
         $('#btnIniciar').click(function(){
+            var dur = "25";
             var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open("GET","../Timer/inicia_temp.php",false);
-            xmlhttp.send(null);
+            xmlhttp.open("POST","../Timer/inicia_temp.php",false);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            var dados = 'duracao=' + dur;
+            xmlhttp.send(dados);
+        });
+    });
+
+    $(document).ready(function(){
+        $('#btnIntevalo').click(function(){
+            var dur = "5";
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("POST","../Timer/inicia_temp.php",false);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            var dados = 'duracao=' + dur;
+            xmlhttp.send(dados);
         });
     });
 
