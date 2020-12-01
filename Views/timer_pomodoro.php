@@ -8,6 +8,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="../Js/notification.js"></script>
     <script src="../Js/calcular_tempo.js"></script>
+    <script src="../Js/on_reload.js"></script>
     <?php session_start() ?>
 </head>
 
@@ -27,18 +28,27 @@
         <div class="row">
             <div class="col-sm-8 offset-sm-2 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3 row">
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 form-group">  
-                    <button id="btnIniciar" class="btn btn-outline-primary form-control">
+                    <button id="btnIniciar" class="btn btn-outline-primary form-control" onclick="contar_tempo(25)">
                         Iniciar (25min)
                     </button>
                 </div>
 
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 form-groups">
-                    <button id="btnIntevalo" class="btn btn-outline-danger form-control">
+                    <button id="btnIntevalo" class="btn btn-outline-danger form-control" onclick="contar_tempo(5)">
                         Intervalo (5min)
                     </button>
                 </div>
             </div>
         </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-8 offset-sm-2 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3 row">
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 form-groups">
+                    <h5 class="text-center" id="qtdPomodoro">foram feitos 0 pomodoro(s)</h5>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <audio src="../Audio/Alerta.mp3" id="idAudio"></audio>
