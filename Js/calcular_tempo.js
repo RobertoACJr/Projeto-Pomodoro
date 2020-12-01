@@ -25,13 +25,12 @@ function contar_tempo(a){
 
                 if(dur == 25 || dur == "25"){
                     var messagem = "O Tempo de trabalho chegou ao fim!";
-                    alert("trab");
                     xmlhttp.open("POST","../Timer/conta_pomodoros.php",false);
                     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                     var dado = 'count=' + 1;
                     xmlhttp.send(dado);
 
-                    document.getElementById("qtdPomodoro").innerHTML=("Foram feitos " + xmlhttp.responseText + " pomodoro(s)");
+                    document.getElementById("qtdPomodoro").innerHTML=("Foram feitos " + xmlhttp.responseText + " pomodoro(s) hoje");
                 } else {
                     var messagem = "O Tempo de intervalo chegou ao fim!"; 
                 }

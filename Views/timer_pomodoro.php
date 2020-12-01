@@ -9,7 +9,7 @@
     <script src="../Js/notification.js"></script>
     <script src="../Js/calcular_tempo.js"></script>
     <script src="../Js/on_reload.js"></script>
-    <?php session_start() ?>
+    <?php session_start(); ?>
 </head>
 
 <body>
@@ -44,7 +44,7 @@
         <div class="row">
             <div class="col-sm-8 offset-sm-2 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3 row">
                 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 form-groups">
-                    <h5 class="text-center" id="qtdPomodoro">foram feitos 0 pomodoro(s)</h5>
+                    <h5 class="text-center" id="qtdPomodoro">foram feitos 0 pomodoro(s) hoje</h5>
                 </div>
             </div>
         </div>
