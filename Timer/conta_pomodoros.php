@@ -4,7 +4,7 @@ session_start();
 //se não existir $_POST é uma verificação, por isso não o contador
 //não será incrementado
 if(isset($_POST["count"])){
-    $_SESSION['contador'] = $_SESSION['contador'] + 1;
+    $_SESSION['contador'] = $_SESSION['contador'] + 1; 
 }
 
 //caso o tempo final seja maior que o tempo limite, significa que

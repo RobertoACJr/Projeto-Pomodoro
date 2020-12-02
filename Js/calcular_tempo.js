@@ -12,12 +12,14 @@ function contar_tempo(tempo, tipo){
         //caso o tipo seja A e o input não esteja vazio, a var dur
         //será setada com o valor do input e o input será limpo.
         if (tipo == 'a' && !isNaN(tempoInput)) {
+            
             dur = tempoInput;
             inputTempo.value = '';
 
         //caso seja do tipo B ou o imput esteja vazio, a var dur
         //será setada com o tempo que vem por parâmetro
         } else if(tipo == 'b' || isNaN(tempoInput)){
+            
             var dur = tempo;
 
         }
@@ -28,7 +30,9 @@ function contar_tempo(tempo, tipo){
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         var dados = 'duracao=' + dur + "&tipo=" + tipo;
         xmlhttp.send(dados);
+
         tempo_timer(tipo);
+
     //se a pag foi recarregada, será tipo C
     } else {
 
@@ -37,8 +41,9 @@ function contar_tempo(tempo, tipo){
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.open("POST","../Timer/inicia_tempo.php",false);
         xmlhttp.send();
-        var dur = xmlhttp.responseText;
         //a var dur receberá o tipo
+        var dur = xmlhttp.responseText;
+
         tempo_timer(dur);
     }
 }
@@ -58,10 +63,12 @@ function tempo_timer(tipo){
 
             if(aux == '00:00'){
                 document.getElementById('idAudio').play();
+
                 if(tipo =='b'){
 
                     var message = "O Tempo de intervalo chegou ao fim!";
-                    
+                    esconderBotao();
+
                 } else if (tipo =='a'){
     
                     var message = "O Tempo de trabalho chegou ao fim!";
@@ -75,13 +82,19 @@ function tempo_timer(tipo){
                     conta_pomo = xmlhttp.responseText; 
 
                     document.getElementById("qtdPomodoro").innerHTML=("Foram feitos " + conta_pomo + " pomodoro(s) hoje");
+                
+                    if (conta_pomo%4 == 0 && conta_pomo!=0) {
+                        mostrarBotao();
+                    } else {
+                        esconderBotao();
+                    }
                 }
 
                 var icon = "../imagens/icon.png";
                 var title = "Timer Finalizado";
                 var link = "http://localhost/Projeto-pomodoro/";
                 notifyMe(icon, title, message, link);
-                
+
                 //aqui em tese, encerra o regressao
                 clearInterval(regressao);
 
@@ -102,7 +115,32 @@ $(document).ready(function(){
     xmlhttp.open("GET","../Timer/conta_pomodoros.php",false);
     xmlhttp.send(null);
     document.getElementById("qtdPomodoro").innerHTML=("Foram feitos " + xmlhttp.responseText + " pomodoro(s) hoje");
+    
+    if (xmlhttp.responseText%4 == 0 && xmlhttp.responseText!=0) {
+        mostrarBotao();
+    } else {
+        esconderBotao();
+    }
 
     var aux = -1;
     contar_tempo(aux, 'c');
+
+    
 });
+
+function mostrarBotao(){
+    
+    btnIntervalo = document.getElementById("btnInt10");
+    if(btnIntervalo.hasAttribute('hidden')){
+        btnIntervalo.removeAttribute("hidden"); 
+    }
+    
+}
+
+function esconderBotao(){
+
+    btnIntervalo = document.getElementById("btnInt10");
+    if(!btnIntervalo.hasAttribute('hidden')){
+        btnIntervalo.setAttribute("hidden", '');
+    }
+}

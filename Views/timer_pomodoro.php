@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 form-group">  
-                    <button id="btnIniciar" class="btn btn-outline-success form-control" onclick="contar_tempo(2, 'a')">
+                    <button id="btnIniciar" class="btn btn-outline-success form-control" onclick="contar_tempo(1, 'a')">
                         Iniciar
                     </button>
                 </div>
@@ -41,13 +41,25 @@
 
         <div class="row">
             <div class="col-sm-8 offset-sm-2 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3 row">
-                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 form-group" id="origen" hidden>  
-                </div>
-
                 <div class="col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3 form-group">
                     <button id="btnIntevalo" class="btn btn-outline-primary form-control" onclick="contar_tempo(1, 'b')">
                         Intervalo (5min)
                     </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="btnInt10" hidden>
+            <div class="col-sm-8 offset-sm-2 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3 row" id="btnInt10">
+
+                <div class="col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3 form-group">  
+                    <button id="btnIntevalo" class="btn btn-outline-warning form-control" onclick="contar_tempo(2, 'b')">
+                        Intervalo (10min)
+                    </button>
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 form-group">  
+                    <h6 class="text-center text-warning">Realizar um descanço mais longo?</h6>
                 </div>
             </div>
         </div>
