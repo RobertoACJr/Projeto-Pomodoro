@@ -8,18 +8,16 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="../Js/notification.js"></script>
     <script src="../Js/calcular_tempo.js"></script>
-    <script src="../Js/on_reload.js"></script>
     <?php session_start(); ?>
 </head>
 
 <body>
-    <br>
     <div id="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="text-center">
                     <div class="jumbotron">
-                        <h1 id="temp" style="font-size:100px">00:00</h1>
+                        <h1 id="temp" style="font-size:100px">25:00</h1>
                     </div>
                 </div>
             </div>
@@ -27,14 +25,27 @@
         
         <div class="row">
             <div class="col-sm-8 offset-sm-2 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3 row">
-                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 form-group">  
-                    <button id="btnIniciar" class="btn btn-outline-primary form-control" onclick="contar_tempo(25)">
-                        Iniciar (25min)
-                    </button>
+                
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 form-group">
+                    <input type="number" class="form-control" min="0" step="1" name="inputTempo" id="inputTempo" placeholder="Alterar tempo (em minutos)">
                 </div>
 
-                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 form-groups">
-                    <button id="btnIntevalo" class="btn btn-outline-danger form-control" onclick="contar_tempo(5)">
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 form-group">  
+                    <button id="btnIniciar" class="btn btn-outline-success form-control" onclick="contar_tempo(2, 'a')">
+                        Iniciar
+                    </button>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-8 offset-sm-2 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3 row">
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 form-group" id="origen" hidden>  
+                </div>
+
+                <div class="col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3 form-group">
+                    <button id="btnIntevalo" class="btn btn-outline-primary form-control" onclick="contar_tempo(1, 'b')">
                         Intervalo (5min)
                     </button>
                 </div>
