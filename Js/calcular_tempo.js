@@ -90,9 +90,10 @@ function tempo_timer(tipo){
                     }
                 }
 
+                
                 var icon = "../imagens/icon.png";
                 var title = "Timer Finalizado";
-                var link = "http://localhost/Projeto-pomodoro/";
+                var link = window.location.href;
                 notifyMe(icon, title, message, link);
 
                 //aqui em tese, encerra o regressao
