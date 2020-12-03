@@ -42,7 +42,7 @@
         <div class="row">
             <div class="col-sm-8 offset-sm-2 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3 row">
                 <div class="col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3 form-group">
-                    <button id="btnIntevalo" class="btn btn-outline-success form-control" onclick="contar_tempo(1, 'b')">
+                    <button id="btnIntevalo" class="btn btn-outline-success form-control" onclick="contar_tempo(5, 'b')">
                         Intervalo (5min)
                     </button>
                 </div>
@@ -53,7 +53,7 @@
             <div class="col-sm-8 offset-sm-2 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3 row" id="btnInt10">
 
                 <div class="col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3 form-group">  
-                    <button id="btnIntevalo" class="btn btn-outline-warning form-control" onclick="contar_tempo(2, 'b')">
+                    <button id="btnIntevalo" class="btn btn-outline-warning form-control" onclick="contar_tempo(10, 'b')">
                         Intervalo (10min)
                     </button>
                 </div>
